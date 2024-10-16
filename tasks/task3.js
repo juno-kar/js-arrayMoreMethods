@@ -10,6 +10,14 @@
 
 function addSuccessPercent(olympicRepresentation) {
   // Ваш код
+  return olympicRepresentation.map(sport => {
+    let percentOfSuccess = sport.medals && sport.athletes ? ((sport.medals / sport.athletes) * 100) : 0;
+    percentOfSuccess = percentOfSuccess.toFixed(1) + "%";
+    return {
+        ...sport,
+        percentOfSuccess
+    };
+});
 }
 
 const olympicRepresentation = [

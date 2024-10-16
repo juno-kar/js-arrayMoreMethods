@@ -4,6 +4,19 @@
 
 function getMostFuelEfficientCars(cars, brand) {
   // Ваш код
+  let allEfficient = cars.every(car => car.fuelConsumption < 6);
+
+  if (allEfficient) {
+    let filterCars = cars.filter(car => car.brand === brand);
+    
+    if (filterCars.length > 0) {
+      return filterCars.sort((a, b) => a.fuelConsumption - b.fuelConsumption);
+    } else {
+      return [];
+    }
+  }
+
+  return []; 
 }
 
 // Приклад використання:

@@ -5,6 +5,19 @@
 
 function getPopularCategories(products) {
   //Ваш код
+  let filteredProducts = products
+  .filter(product => product.sales > 5)
+  .sort((a, b) => b.sales - a.sales);   
+
+  let uniqueCategories = [];
+
+  filteredProducts.forEach(product => {
+    if (!uniqueCategories.includes(product.category)) {
+      uniqueCategories.push(product.category);
+    }
+  });
+
+  return uniqueCategories;
 }
 
 // Приклад використання:
